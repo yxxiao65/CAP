@@ -123,15 +123,6 @@ end
 end
 
 
-
-
-
-
-
-
-
-
-
   if love.keyboard.isDown('up') and y > -5 then
     if cc(x, y-5, 64, 64, 400, 570, 64, 64) == false then
   y = y - 5
@@ -151,11 +142,6 @@ end
 
 
 
-
-
-
-
-
   if cc(x, y, w, h,   385, 190, 64, 64) then
       x = x - 3000
     end
@@ -168,6 +154,7 @@ end
     end
 
 
+--follow
    if x > ex then
     ex = ex + 3
     end
