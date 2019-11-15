@@ -36,7 +36,7 @@ function love.load()
   h = 64
 me = love.graphics.newImage('assets-1/player/felids/cat_6.png')
 
-  cam = gamera.new(0, 0, 1000, 1000)
+  cam = gamera.new(0, 0, 100000, 1000)
 
   a = love.graphics.newImage('assets-1/dungeon/floor/black_cobalt_9.png')
   b = love.graphics.newImage('assets-1/dungeon/floor/cage_3.png')
@@ -44,26 +44,74 @@ me = love.graphics.newImage('assets-1/player/felids/cat_6.png')
 
 
   mapTemplate = {
-    {b, b, b, b, b},
-    {b, b, b, b, b},
-    {b, b, b, b, b},
-    {b, b, b, b, b},
-    {b, b, b, b, b},
-    {b, b, b, b, b},
-    {b, b, b, b, b},
-    {b, b, b, b, b},
-    {b, b, b, b, b},
-    {b, b, b, b, b},
-    {b, b, b, b, b},
-    {b, b, b, b, b},
-    {b, b, b, b, b},
-    {b, b, b, b, b},
-    {b, b, b, b, b},
-    {b, b, b, b, b},
-    {b, b, b, b, b},
-    {b, b, b, b, b},
-    {b, b, b, b, b},
-    {b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b, b, b, b, b, b},
     }
 
     wall = love.graphics.newImage('assets-1/dungeon/wall/catacombs_1.png')
@@ -73,6 +121,37 @@ me = love.graphics.newImage('assets-1/player/felids/cat_6.png')
       {a, 'nil', 'nil', 'nil', c},
       {a, 'nil', 'nil', 'nil', c},
       {a, 'nil', 'nil', 'nil', c},
+      {a, 'nil', 'nil', 'nil', c},
+      {a, 'nil', 'nil', 'nil', c},
+      {a, 'nil', 'nil', 'nil', c},
+      {a, 'nil', 'nil', 'nil', c},
+      {a, 'nil', 'nil', 'nil', c},
+      {a, 'nil', 'nil', 'nil', c},
+      {a, 'nil', 'nil', 'nil', c},
+      {a, 'nil', 'nil', 'nil', c},
+      {a, 'nil', 'nil', 'nil', c},
+      {a, 'nil', 'nil', 'nil', c},
+      {a, 'nil', 'nil', 'nil', c},
+      {a, 'nil', 'nil', 'nil', c},
+      {a, 'nil', 'nil', 'nil', c},
+      {a, 'nil', 'nil', 'nil', c},
+      {a, 'nil', 'nil', 'nil', c},
+      {a, 'nil', 'nil', 'nil', c},
+      {a, 'nil', 'nil', 'nil', c},
+      {a, 'nil', 'nil', 'nil', c},
+      {a, 'nil', 'nil', 'nil', c},
+      {a, 'nil', 'nil', 'nil', c},
+      {a, 'nil', 'nil', 'nil', c},
+      {a, 'nil', 'nil', 'nil', c},
+      {a, 'nil', 'nil', 'nil', c},
+      {a, 'nil', 'nil', 'nil', c},
+      {a, 'nil', 'nil', 'nil', c},
+      {a, 'nil', 'nil', 'nil', c},
+      {a, 'nil', 'nil', 'nil', c},
+      {a, 'nil', 'nil', 'nil', c},
+      {a, 'nil', 'nil', 'nil', c},
+      {a, 'nil', 'nil', 'nil', c},
+
     }
 
 
@@ -92,29 +171,29 @@ function love.update(dt)
 
 
   if love.keyboard.isDown('up') then
-    if collision:cc(x, y - 5, 55, 30) == false then
-      y = y - 5
+    if collision:cc(x, y - 1, 55, 30) == false then
+      y = y - 1
     end
   end
 
 
   if love.keyboard.isDown('down') then
-    if collision:cc(x, y + 5, 55, 30) == false then
-      y = y + 5
+    if collision:cc(x, y + 1, 55, 30) == false then
+      y = y + 1
     end
   end
 
 
   if love.keyboard.isDown('right') then
-    if collision:cc(x + 5, y, 55, 30) == false then
-      x = x + 5
+    if collision:cc(x + 1, y, 55, 30) == false then
+      x = x + 1
     end
   end
 
 
   if love.keyboard.isDown('left') then
-    if collision:cc(x - 5, y, 55, 30) == false then
-      x = x - 5
+    if collision:cc(x - 1, y, 55, 30) == false then
+      x = x - 1
     end
   end
 
@@ -134,12 +213,43 @@ function love.draw()
 
   love.graphics.draw(me, x, y)
 
-if x < 300 and y < 300 then
-  love.graphics.print('Red road cant reach the end', 100, 50)
+if x < 300 and y < 250 then
+  love.graphics.print('Red road that cant reach the end.', 50, 50)
 end
+
+if x > 300 and x < 600 and y < 250 then
+  love.graphics.print('countless grievances flowed out from the floor', 250, 50)
+end
+
+if x > 600 and x < 700 and y < 250 then
+  love.graphics.print('It is them, the THEM', 550, 50)
+end
+
+if x > 800 and x < 1000 and y < 250 then
+  love.graphics.print('You heard them', 750, 50)
+end
+
+if x > 1000 and x < 1200 and y < 250 then
+  love.graphics.print('They are praying for you', 950, 50)
+end
+
+if x > 1200 and x < 1500 and y < 250 then
+  love.graphics.print('For you to stay with them', 1200, 50)
+end
+
+if x > 1500 and x < 1700 and y < 250 then
+  love.graphics.print('Forever!!!', 1450, 50)
+end
+
 
   end)
   end
 
 
+end
+
+function love.keypressed(key)
+  if x > 1000000 and y > 1100 then
+    love.exitModule()
+  end
 end
