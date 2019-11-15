@@ -134,8 +134,9 @@ function love.draw()
 
   love.graphics.draw(me, x, y)
 
-  love.graphics.print('Red road cant reach the end', 50, 50)
-
+if x < 300 and y < 300 then
+  love.graphics.print('Red road cant reach the end', 100, 50)
+end
 
   end)
   end
