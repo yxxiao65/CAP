@@ -15,6 +15,10 @@ function love.load()
   xx = love.math.random(0, 1000);
   yy = love.math.random(0, 1000);
 
+
+sound = love.audio.newSource('pathtoasset', 'static')
+
+
   x = 100
   y = 100
   l = 0
@@ -36,7 +40,7 @@ function love.load()
   h = 64
 me = love.graphics.newImage('assets-1/player/felids/cat_6.png')
 
-  cam = gamera.new(0, 0, 100000, 1000)
+  cam = gamera.new(0, 0, 100000, 300)
 
   a = love.graphics.newImage('assets-1/dungeon/floor/black_cobalt_9.png')
   b = love.graphics.newImage('assets-1/dungeon/floor/cage_3.png')
@@ -44,74 +48,102 @@ me = love.graphics.newImage('assets-1/player/felids/cat_6.png')
 
 
   mapTemplate = {
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
-    {b, b, b, b, b, b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
+    {b, b, b, b, b},
     }
 
     wall = love.graphics.newImage('assets-1/dungeon/wall/catacombs_1.png')
@@ -185,8 +217,8 @@ function love.update(dt)
 
 
   if love.keyboard.isDown('right') then
-    if collision:cc(x + 1, y, 55, 30) == false then
-      x = x + 1
+    if collision:cc(x + 10, y, 55, 30) == false then
+      x = x + 10
     end
   end
 
@@ -249,7 +281,13 @@ end
 end
 
 function love.keypressed(key)
-  if x > 1000000 and y > 1100 then
+
+  if x > 1000000 then
     love.exitModule()
   end
+
+  if key == 'space' then
+  sound:play()
+  end
+
 end
