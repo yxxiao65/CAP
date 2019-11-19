@@ -36,7 +36,7 @@ sound = love.audio.newSource('music/dark_ambient.mp3', 'static')
   dir = 'left'
 
 --me
-  x = 4200
+  x = 100
   y = 100
   me = love.graphics.newImage('assets-1/player/felids/cat_6.png')
 
