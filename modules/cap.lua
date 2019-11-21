@@ -37,7 +37,7 @@ sound = love.audio.newSource('music/dark_ambient.mp3', 'static')
 
 --me
   x = 100
-  y = 100
+  y = 130
   me = love.graphics.newImage('assets-1/player/felids/cat_6.png')
 
 --collision
@@ -47,7 +47,7 @@ sound = love.audio.newSource('music/dark_ambient.mp3', 'static')
 
 
   ent = love.graphics.newImage('assets-1/monster/boggart.png')
-  cam = gamera.new(0, 0, 100000, 300)
+    cam = gamera.new(-1000, -1000, 10000, 10000)
 
   a = love.graphics.newImage('assets-1/dungeon/floor/black_cobalt_9.png')
   b = love.graphics.newImage('assets-1/dungeon/floor/cage_3.png')
@@ -360,6 +360,7 @@ end
 function love.keypressed(key)
 
   if x > 4300 then
+    LOAD_MODULE =  'cap2'
     love.exitModule()
   end
 

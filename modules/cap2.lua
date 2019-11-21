@@ -25,7 +25,7 @@ function love.load()
     dir = 'left'
 
   --me
-    x = 6400
+    x = 100
     y = 140
     me = love.graphics.newImage('assets-1/player/felids/cat_6.png')
 
@@ -37,7 +37,7 @@ function love.load()
 sound = love.audio.newSource('music/dark_ambient.mp3', 'static')
 
     ent = love.graphics.newImage('assets-1/monster/boggart.png')
-    cam = gamera.new(0, 0, 100000, 300)
+    cam = gamera.new(-1000, -1000, 10000, 10000)
 
 
 
@@ -310,28 +310,28 @@ sound = love.audio.newSource('music/dark_ambient.mp3', 'static')
 
     if love.keyboard.isDown('up') then
       if collision:cc(x, y - 1, 55, 30) == false then
-        y = y - 10
+        y = y - 1
       end
     end
 
 
     if love.keyboard.isDown('down') then
       if collision:cc(x, y + 1, 55, 30) == false then
-        y = y + 10
+        y = y + 1
       end
     end
 
 
     if love.keyboard.isDown('right') then
       if collision:cc(x + 1, y, 55, 30) == false then
-        x = x + 10
+        x = x + 1
       end
     end
 
 
     if love.keyboard.isDown('left') then
       if collision:cc(x - 1, y, 55, 30) == false then
-        x = x - 10
+        x = x - 1
       end
     end
 
@@ -499,6 +499,7 @@ end
     function love.keypressed(key)
 
       if x > 4300 and x < 4900 then
+        LOAD_MODULE =  'cap3'
         love.exitModule()
       end
 
