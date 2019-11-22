@@ -34,7 +34,7 @@ function love.load()
     h = 64
 
 
-sound = love.audio.newSource('music/dark_ambient.mp3', 'static')
+sound = love.audio.newSource('music/m1.mp3', 'static')
 
     ent = love.graphics.newImage('assets-1/monster/boggart.png')
     cam = gamera.new(-1000, -1000, 10000, 10000)
@@ -350,7 +350,7 @@ end
 
 
   function love.draw()
-    
+
     if (hp > 0) then
     cam:draw(function(l, t, w, h)
 

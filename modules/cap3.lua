@@ -16,8 +16,8 @@ function love.load()
     h = 0
 
 
-  x = 100
-  y = 140
+  x = 128
+  y = 128
   me = love.graphics.newImage('assets-1/player/felids/cat_6.png')
 
   fx = 64
@@ -30,6 +30,7 @@ function love.load()
       w = 64
       h = 64
 
+sound = love.audio.newSource('music/The Dark Amulet.mp3', 'static')
 
   collision = {
           {c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c},
@@ -109,28 +110,28 @@ function love.update(dt)
 
       if love.keyboard.isDown('up') then
         if collision:cc(x, y - 1, 55, 30) == false then
-          y = y - 10
+          y = y - 2
         end
       end
 
 
       if love.keyboard.isDown('down') then
         if collision:cc(x, y + 1, 55, 30) == false then
-          y = y + 10
+          y = y + 2
         end
       end
 
 
       if love.keyboard.isDown('right') then
         if collision:cc(x + 1, y, 55, 30) == false then
-          x = x + 10
+          x = x + 2
         end
       end
 
 
       if love.keyboard.isDown('left') then
         if collision:cc(x - 1, y, 55, 30) == false then
-          x = x - 10
+          x = x - 2
         end
       end
 
@@ -153,10 +154,37 @@ end
 
 
 
-    if x < 1000 and y < 350 then
-      love.graphics.print('lets see what we have here', 100, 50,0,5)
+    if x < 1200 and y < 350 then
+      love.graphics.print('lets see what we have here', 200, 50,0,3)
     end
 
+    if x < 1200 and y < 550 then
+      love.graphics.print('You need to find that unique floor.', 200, 250,0,3)
+    end
+
+    if x < 1200 and y < 850 then
+      love.graphics.print('Not unique on outlook, but immanence', 200, 550,0,3)
+    end
+
+    if x < 1200 and y < 1050 then
+      love.graphics.print('We have no other way to leave this space', 200, 750,0,3)
+    end
+
+    if x < 1200 and y < 1250 then
+      love.graphics.print('Those Red array limited my power', 200, 950,0,3)
+    end
+
+    if x < 1200 and y < 1450 then
+      love.graphics.print('All I can do is make you move faster', 200, 1150,0,3)
+    end
+
+    if x < 1200 and y < 1650 then
+      love.graphics.print('1/2500 chance, go find it!', 200, 1350,0,3)
+    end
+
+    if x < 1200 and y < 1850 then
+      love.graphics.print('Hint: You have to Circle around the special square to leave', 200, 1550,0,3)
+    end
 
 love.graphics.draw(me, x, y)
 
@@ -170,9 +198,13 @@ end
 
 function love.keypressed(key)
 
-  if x > 4300 and x < 4900 then
-    LOAD_MODULE =  'cap'
+  if x > 1728 and x < 1792 and y > 1920 and y < 1984 then
+    LOAD_MODULE =  'cap4'
     love.exitModule()
   end
+
+  if key == 'right' or key == 'left' then
+    sound:play()
+    end
 
 end
