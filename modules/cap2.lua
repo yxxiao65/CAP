@@ -350,6 +350,7 @@ end
 
 
   function love.draw()
+    
     if (hp > 0) then
     cam:draw(function(l, t, w, h)
 
