@@ -16,8 +16,8 @@ function love.load()
     h = 0
 
 
-  x = 128
-  y = 128
+  x = 66
+  y = 66
   me = love.graphics.newImage('assets-1/player/felids/cat_6.png')
 
   fx = 64
@@ -33,7 +33,50 @@ sound = love.audio.newSource('music/Dark Descent.mp3', 'static')
 
 
 collision = {
-    {c,c}
+    --bottom 1 line
+    {c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c},
+    --2 line
+    {c,'nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil',c},
+    --3 line
+    {c,'nil',c,'nil',c,'nil',c,c,c,c,c,c,c,c,c,c,c,'nil',c,c,c,c,c,'nil',c},
+    --4 line
+    {c,'nil',c,'nil',c,'nil',c,'nil','nil','nil',c,'nil','nil','nil','nil','nil',c,'nil',c,'nil','nil','nil','nil','nil',c},
+    --5 line
+    {c,'nil',c,'nil',c,'nil',c,'nil',c,c,c,c,c,'nil',c,'nil',c,'nil',c,'nil',c,c,c,'nil',c},
+    --6 line
+    {c,'nil',c,'nil',c,'nil',c,'nil',c,'nil','nil','nil','nil','nil',c,'nil',c,'nil',c,'nil',c,'nil',c,'nil',c},
+    --7 line
+    {c,'nil',c,'nil',c,'nil',c,'nil',c,'nil',c,c,c,c,c,c,c,'nil',c,c,c,'nil',c,'nil',c},
+    --8 line
+    {c,'nil',c,'nil',c,'nil','nil','nil',c,'nil','nil','nil','nil','nil','nil','nil','nil','nil',c,'nil',c,'nil','nil','nil',c},
+    --9 line
+    {c,'nil',c,'nil',c,c,c,'nil',c,c,c,c,c,c,c,c,c,c,c,'nil',c,c,c,c,c,'nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil',c},
+    --10 line
+    {c,'nil',c,'nil','nil','nil',c,'nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil',c},
+    --11 line
+    {c,'nil',c,c,c,'nil',c,'nil',c,'nil',c,c,c,c,c,c,c,c,c,c,c,c,c,'nil',c},
+    --12 line
+    {c,'nil','nil','nil',c,'nil',c,'nil',c,'nil',c,'nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil',c},
+    --13 line
+    {c,c,c,c,c,'nil',c,'nil',c,'nil',c,'nil',c,c,c,c,c,c,c,c,c,'nil',c,c,c},
+    --14 line
+    {c,'nil','nil','nil','nil','nil',c,'nil',c,'nil',c,'nil','nil','nil',c,'nil','nil','nil','nil','nil',c,'nil','nil','nil',c},
+    --15 line
+    {c,'nil',c,c,c,c,c,'nil',c,'nil',c,c,c,'nil',c,'nil',c,c,c,'nil',c,c,c,c,c},
+    --16 line
+    {c,'nil',c,'nil','nil','nil','nil','nil',c,'nil',c,'nil','nil','nil',c,'nil','nil','nil',c,'nil',c,'nil','nil','nil',c},
+    --17 line
+    {c,'nil',c,'nil',c,c,c,c,c,'nil',c,c,c,c,c,c,c,c,c,'nil',c,'nil',c,'nil',c},
+    --18 line(have not finish)
+    {c,'nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil',c},
+    {c,'nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil',c},
+    {c,'nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil',c},
+    {c,'nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil',c},
+    {c,'nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil',c},
+    {c,'nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil',c},
+    {c,'nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil',c},
+    {c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c},
+
   }
 
   collision = Map:new(collision)
@@ -55,28 +98,28 @@ function love.update(dt)
 
 
       if love.keyboard.isDown('up') then
-        if collision:cc(x, y - 1, 55, 30) == false then
+        if collision:cc(x, y - 1, 30, 30) == false then
           y = y - 2
         end
       end
 
 
       if love.keyboard.isDown('down') then
-        if collision:cc(x, y + 1, 55, 30) == false then
+        if collision:cc(x, y + 1, 30, 30) == false then
           y = y + 2
         end
       end
 
 
       if love.keyboard.isDown('right') then
-        if collision:cc(x + 1, y, 55, 30) == false then
+        if collision:cc(x + 1, y, 30, 30) == false then
           x = x + 2
         end
       end
 
 
       if love.keyboard.isDown('left') then
-        if collision:cc(x - 1, y, 55, 30) == false then
+        if collision:cc(x - 1, y, 30, 30) == false then
           x = x - 2
         end
       end
