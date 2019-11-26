@@ -22,7 +22,7 @@ function love.load()
 
   fx = 64
   fy = 64
-  floor = love.graphics.newImage('assets-1/dungeon/floor/acidic_floor_3.png')
+  floor = love.graphics.newImage('assets-1/dungeon/floor/rect_gray_0.png')
 
     c = love.graphics.newImage('assets-1/dungeon/wall/bars_red_8.png')
 
@@ -67,15 +67,22 @@ collision = {
     {c,'nil',c,'nil','nil','nil','nil','nil',c,'nil',c,'nil','nil','nil',c,'nil','nil','nil',c,'nil',c,'nil','nil','nil',c},
     --17 line
     {c,'nil',c,'nil',c,c,c,c,c,'nil',c,c,c,c,c,c,c,c,c,'nil',c,'nil',c,'nil',c},
-    --18 line(have not finish)
-    {c,'nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil',c},
-    {c,'nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil',c},
-    {c,'nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil',c},
-    {c,'nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil',c},
-    {c,'nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil',c},
-    {c,'nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil',c},
-    {c,'nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil',c},
-    {c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c},
+    --18 line
+    {c,'nil',c,'nil',c,'nil','nil','nil',c,'nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil',c,'nil',c},
+    --19 line
+    {c,'nil',c,'nil',c,'nil',c,'nil',c,'nil',c,c,c,c,c,c,c,c,c,c,c,c,c,'nil',c},
+    --20 line
+    {c,'nil',c,'nil','nil','nil',c,'nil',c,'nil',c,'nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil','nil',c},
+    --21 line
+    {c,'nil',c,c,c,c,c,'nil',c,'nil',c,'nil',c,c,c,c,c,'nil',c,c,c,c,c,'nil',c},
+    --22 line
+    {c,'nil',c,'nil',c,'nil',c,'nil',c,'nil',c,'nil',c,'nil','nil','nil',c,'nil',c,'nil',c,'nil','nil','nil',c},
+    --23 line
+    {c,'nil',c,'nil',c,'nil',c,'nil',c,'nil',c,c,c,c,c,'nil',c,'nil',c,'nil',c,c,c,c,c},
+    --24 line
+    {c,'nil','nil','nil',c,'nil','nil','nil',c,'nil','nil','nil','nil','nil','nil','nil',c,'nil','nil','nil','nil','nil','nil','nil',c},
+    -- top
+    {c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c},
 
   }
 
@@ -99,28 +106,28 @@ function love.update(dt)
 
       if love.keyboard.isDown('up') then
         if collision:cc(x, y - 1, 30, 30) == false then
-          y = y - 2
+          y = y - 3
         end
       end
 
 
       if love.keyboard.isDown('down') then
         if collision:cc(x, y + 1, 30, 30) == false then
-          y = y + 2
+          y = y + 3
         end
       end
 
 
       if love.keyboard.isDown('right') then
         if collision:cc(x + 1, y, 30, 30) == false then
-          x = x + 2
+          x = x + 3
         end
       end
 
 
       if love.keyboard.isDown('left') then
         if collision:cc(x - 1, y, 30, 30) == false then
-          x = x - 2
+          x = x - 3
         end
       end
 
@@ -135,11 +142,52 @@ function love.draw()
   cam:draw(function(l, t, w, h)
 
 
+    for i2 = 0, 23 do
+      for i = 0, 23 do
+        love.graphics.draw(floor, fx + (i * 64), fy + (i2 * 64) )
+      end
+    end
+
+
     collision:draw()
 
 
     love.graphics.draw(me, x, y)
 
+
+    --line 1
+    if x < 256 and y < 128 then
+      love.graphics.print('go find the exit, for victory!', 100, 100)
+    end
+
+    if x < 512 and x > 256 and y < 128 then
+      love.graphics.print('keep going this way!', 400, 100)
+    end
+
+    if x < 768 and x > 512 and y < 128 then
+      love.graphics.print('destroy this wall!', 600, 100)
+    end
+
+    if x < 768 and x > 704 and y < 256 then
+      love.graphics.print('hahahahaha you did trust me.', 700, 150)
+    end
+
+    --line 2
+    if x < 256 and y < 256 and y > 128 then
+      love.graphics.print('alright, it is here', 100, 220)
+    end
+
+    if x < 768 and x > 256 and y < 256 and y > 128 then
+      love.graphics.print('walk till the end, you will find the truth of this world', 300, 220)
+    end
+
+    if x < 1472 and x > 850 and y < 128 then
+      love.graphics.print('I will miss this adventure time that we spent together.', 850, 100)
+    end
+
+    if x < 1600 and x > 1400 and y < 256 then
+      love.graphics.print('It is ridiculously enough, as you are! HAHAHA!', 1250, 100)
+    end
 
 
     end)
@@ -150,7 +198,7 @@ function love.draw()
 
   function love.keypressed(key)
 
-    if x > 1728 and x < 1792 and y > 1920 and y < 1984 then
+    if x > 1472 and y > 1472 then
       LOAD_MODULE =  'cap'
       love.exitModule()
     end
