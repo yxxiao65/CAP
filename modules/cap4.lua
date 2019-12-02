@@ -16,8 +16,8 @@ function love.load()
     h = 0
 
 
-  x = 66
-  y = 66
+  x = 64
+  y = 64
   me = love.graphics.newImage('assets-1/player/felids/cat_6.png')
 
   fx = 64
@@ -106,28 +106,28 @@ function love.update(dt)
 
       if love.keyboard.isDown('up') then
         if collision:cc(x, y - 1, 30, 30) == false then
-          y = y - 3
+          y = y - 2
         end
       end
 
 
       if love.keyboard.isDown('down') then
         if collision:cc(x, y + 1, 30, 30) == false then
-          y = y + 3
+          y = y + 2
         end
       end
 
 
       if love.keyboard.isDown('right') then
         if collision:cc(x + 1, y, 30, 30) == false then
-          x = x + 3
+          x = x + 2
         end
       end
 
 
       if love.keyboard.isDown('left') then
         if collision:cc(x - 1, y, 30, 30) == false then
-          x = x - 3
+          x = x - 2
         end
       end
 
@@ -190,6 +190,37 @@ function love.draw()
     end
 
 
+    --line 3
+
+    if x < 256 and y < 384 and y > 256 then
+      love.graphics.print('Stop and turn to here', 100, 340)
+    end
+
+    if x < 768 and x > 256 and y < 384 and y > 256 then
+      love.graphics.print('You made the right choice', 300, 340)
+    end
+
+    if x < 768 and x > 256 and y < 512 and y > 384 then
+      love.graphics.print('Here is the ending', 300, 470)
+    end
+
+
+
+
+
+
+
+
+
+
+
+
+    --ending point
+    if x > 1400 and y > 1300 then
+      love.graphics.print('No! Leave here! That is a trap!', 1350, 1400,0,2)
+    end
+
+
     end)
     end
 
@@ -199,7 +230,7 @@ function love.draw()
   function love.keypressed(key)
 
     if x > 1472 and y > 1472 then
-      LOAD_MODULE =  'cap'
+      --LOAD_MODULE =  'cap'
       love.exitModule()
     end
 

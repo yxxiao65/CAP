@@ -165,6 +165,10 @@ sound = love.audio.newSource('music/m1.mp3', 'static')
       {'nil', 'nil', d},
       {'nil', 'nil', d},
       {'nil', 'nil', d},
+      {'nil', 'nil', d},
+      {'nil', 'nil', d},
+      {'nil', 'nil', d},
+      {'nil', 'nil', d},
 
       }
 
@@ -289,6 +293,7 @@ sound = love.audio.newSource('music/m1.mp3', 'static')
       {'nil', a, 'nil', c},
       {'nil', a, 'nil', c},
       {'nil', a, 'nil', c},
+      {'nil', a, a, a, 'nil'},
     }
 
   map = Map:new(mapTemplate)
@@ -437,7 +442,7 @@ end
     end
 
     if x > 4000 and x < 4200 and y < 250 then
-      love.graphics.print('lets see where you will jump to.     Have luck', 4100, 50)
+      love.graphics.print('lets see where you will jump to.     Have luck', 4100, 0)
     end
 
 
@@ -499,7 +504,7 @@ end
 
     function love.keypressed(key)
 
-      if x > 4300 and x < 4900 then
+      if x > 4300 and x < 4900 or x > 6700 then
         LOAD_MODULE =  'cap3'
         love.exitModule()
       end
