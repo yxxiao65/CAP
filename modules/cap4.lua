@@ -204,6 +204,13 @@ function love.draw()
       love.graphics.print('Here is the ending', 300, 470)
     end
 
+    if x < 896 and x > 768 and y < 512 and y > 384 then
+      love.graphics.print('Welcome to the latest space', 800, 470)
+    end
+
+    if x < 1024 and x > 896 and y < 512 and y > 384 then
+      love.graphics.print('We will meet', 900, 470)
+    end
 
 
 
@@ -230,7 +237,7 @@ function love.draw()
   function love.keypressed(key)
 
     if x > 1472 and y > 1472 then
-      --LOAD_MODULE =  'cap'
+      LOAD_MODULE =  'cap5'
       love.exitModule()
     end
 
