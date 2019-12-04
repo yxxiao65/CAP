@@ -122,53 +122,76 @@ function love.update(dt)
 
       if love.keyboard.isDown('up') then
         if collision:cc(x, y - 1, 30, 30) == false then
-          y = y - 20
+          y = y - 2
         end
       end
 
 
       if love.keyboard.isDown('down') then
         if collision:cc(x, y + 1, 30, 30) == false then
-          y = y + 20
+          y = y + 2
         end
       end
 
 
       if love.keyboard.isDown('right') then
         if collision:cc(x + 1, y, 30, 30) == false then
-          x = x + 20
+          x = x + 2
         end
       end
 
 
       if love.keyboard.isDown('left') then
         if collision:cc(x - 1, y, 30, 30) == false then
-          x = x - 20
+          x = x - 2
         end
       end
 
 
 --enemy
       if x > ex then
-       ex = ex + 3
+       ex = ex + 1.5
        end
 
        if x < ex then
-        ex = ex - 3
+        ex = ex - 1.5
       end
 
        if y > ey then
-         ey = ey + 3
+         ey = ey + 1.5
        end
 
        if y < ey then
-         ey = ey - 3
+         ey = ey - 1.5
        end
 
+--e2
+
+
+       if x > ex2 then
+        ex2 = ex2 + 1.6
+        end
+
+        if x < ex2 then
+         ex2 = ex2 - 1.6
+       end
+
+        if y > ey2 then
+          ey2 = ey2 + 1.6
+        end
+
+        if y < ey2 then
+          ey2 = ey2 - 1.6
+        end
 
 
 --attack
      if ex > x - 5 and ex < x + 5 and ey > y - 5 and ex < y + 5 then
+       x = x + G
+       y = y + H
+     end
+
+     if ex2 > x - 5 and ex2 < x + 5 and ey2 > y - 5 and ex2 < y + 5 then
        x = x + G
        y = y + H
      end
@@ -203,6 +226,15 @@ function love.draw()
 
 
 
+
+    if x < 4000 and y < 4000 then
+      love.graphics.print('Alright, you will stop here', 100, 150,0,3)
+      love.graphics.print('those are You, other Yous', 100, 500,0,3)
+      love.graphics.print('And you will be one of them', 100, 1000,0,3)
+      love.graphics.print('Stay here till when you', 100, 1400,0,3)
+      love.graphics.print('Meet the next you', 100, 1920,0,3)
+    end
+
   end)
   end
 
@@ -212,8 +244,8 @@ end
 
   function love.keypressed(key)
 
-  --if x > 1728 and x < 1792 and y > 1920 and y < 1984 then
-    if x > 3000 then
+  if x > 1728 and x < 1792 and y > 1920 and y < 1984 then
+  --  if x > 3000 then
       love.exitModule()
     end
 
