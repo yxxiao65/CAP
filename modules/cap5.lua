@@ -246,6 +246,7 @@ end
 
   if x > 1728 and x < 1792 and y > 1920 and y < 1984 then
   --  if x > 3000 then
+      LOAD_MODULE =  'cap6'
       love.exitModule()
     end
 
