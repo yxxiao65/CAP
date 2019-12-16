@@ -53,13 +53,13 @@ function love.update(dt)
       end
 
 
-  if love.keyboard.isDown('right') and x < 8950 then
-          x = x + 30
+      if love.keyboard.isDown('right') and x < 8950 then
+          x = x + 50
       end
 
 
       if love.keyboard.isDown('left') and x > 0 then
-          x = x - 30
+          x = x - 50
       end
 
 
