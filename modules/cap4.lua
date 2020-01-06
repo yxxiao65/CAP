@@ -15,11 +15,11 @@ function love.load()
     w = 0
     h = 0
 
-
+--me,player
   x = 64
   y = 64
   me = love.graphics.newImage('assets-1/player/felids/cat_6.png')
-
+--map, floor start point
   fx = 64
   fy = 64
   floor = love.graphics.newImage('assets-1/dungeon/floor/rect_gray_0.png')
@@ -31,7 +31,7 @@ function love.load()
       h = 64
 sound = love.audio.newSource('music/Dark Descent.mp3', 'static')
 
-
+--maze
 collision = {
     --bottom 1 line
     {c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c},
@@ -85,13 +85,13 @@ collision = {
     {c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c},
 
   }
-
+--I commented the collision map last week, it is easier to make maze
   collision = Map:new(collision)
 
 
       hp = 100
 
-
+--camra
         cam = gamera.new(-1000, -1000, 10000, 10000)
 
 end
@@ -103,7 +103,7 @@ function love.update(dt)
 
   cam:setPosition(x, y)
 
-
+--player movement
       if love.keyboard.isDown('up') then
         if collision:cc(x, y - 1, 30, 30) == false then
           y = y - 2
@@ -141,7 +141,7 @@ function love.draw()
 
   cam:draw(function(l, t, w, h)
 
-
+--map 2.0, only can use this way to draw floor, could not draw complex map
     for i2 = 0, 23 do
       for i = 0, 23 do
         love.graphics.draw(floor, fx + (i * 64), fy + (i2 * 64) )
@@ -153,7 +153,7 @@ function love.draw()
 
 
     love.graphics.draw(me, x, y)
-
+--those comments blow were also from last week
 
     --line 1
     if x < 256 and y < 128 then
@@ -235,12 +235,12 @@ function love.draw()
 
 
   function love.keypressed(key)
-
+-- go to next map
     if x > 1472 and y > 1472 then
       LOAD_MODULE =  'cap5'
       love.exitModule()
     end
-
+--play music
     if key == 'right' or key == 'left' or key == 'up' or key == 'down' then
       sound:play()
       end

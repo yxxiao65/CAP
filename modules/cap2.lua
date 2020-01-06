@@ -14,7 +14,7 @@ function love.load()
     w = 0
     h = 0
 
-
+--vars
     X1 = 400
     Y1 = 300
     X2 = 415
@@ -33,13 +33,13 @@ function love.load()
     w = 64
     h = 64
 
-
+--music
 sound = love.audio.newSource('music/m1.mp3', 'static')
 
     ent = love.graphics.newImage('assets-1/monster/boggart.png')
     cam = gamera.new(-1000, -1000, 10000, 10000)
 
-
+--map floors
 
 
     a = love.graphics.newImage('assets-1/dungeon/floor/grey_dirt_1.png')
@@ -171,7 +171,7 @@ sound = love.audio.newSource('music/m1.mp3', 'static')
       {'nil', 'nil', d},
 
       }
-
+--collision map
 
     collision = {
       {a, a, a, a, c},
@@ -312,7 +312,7 @@ sound = love.audio.newSource('music/m1.mp3', 'static')
 
     cam:setPosition(x, y)
 
-
+--player movement
     if love.keyboard.isDown('up') then
       if collision:cc(x, y - 1, 55, 30) == false then
         y = y - 1
@@ -340,7 +340,7 @@ sound = love.audio.newSource('music/m1.mp3', 'static')
       end
     end
 
-
+--jumping to
 if y < 100 or y > 180 then
 
 x = 5400
@@ -367,7 +367,7 @@ end
 
 
 
-
+--story
 
     if x < 300 and y < 250 then
       love.graphics.print('do not fall in the darkness', 250, 50)
@@ -475,7 +475,7 @@ end
 
 
 
-
+--jumping gate draw
 
 
 if x > 6400 then
@@ -501,16 +501,15 @@ end
 
 
     end
-
+--next map
     function love.keypressed(key)
 
       if x > 4300 and x < 4900 or x > 6700 then
         LOAD_MODULE =  'cap3'
         love.exitModule()
       end
-
+--play backround music
     if key == 'right' or key == 'left' then
       sound:play()
       end
-    --key == 'space'
     end

@@ -7,17 +7,17 @@ local anim8 = require 'core/anim8'
 function love.load()
 
 
-
+--attact from enemy make you jump by this var
   G = 20
   H = -20
-
+--enemy number 1
 ex = 300
 ey = 300
 
 
 
   e = love.graphics.newImage('assets-1/player/felids/cat_6.png')
-
+--enemy  number 2
 ex2 = 400
 ey2 = 400
 
@@ -28,7 +28,7 @@ ey2 = 400
     w = 0
     h = 0
 
-
+--player
   x = 64
   y = 64
   me = love.graphics.newImage('assets-1/player/felids/cat_6.png')
@@ -42,9 +42,10 @@ ey2 = 400
     --collision
       w = 64
       h = 64
+--sound
 sound = love.audio.newSource('music/Dark Descent.mp3', 'static')
 
-
+--collision map
 collision = {
 
   {c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c},
@@ -107,7 +108,7 @@ collision = {
 
       hp = 100
 
-
+--camra is same size as the map
         cam = gamera.new(0, 0, 3392, 3392)
 
 end
@@ -118,7 +119,7 @@ function love.update(dt)
 
 
   cam:setPosition(x, y)
-
+--player movement
 
       if love.keyboard.isDown('up') then
         if collision:cc(x, y - 1, 30, 30) == false then
@@ -148,7 +149,7 @@ function love.update(dt)
       end
 
 
---enemy
+--enemy movement
       if x > ex then
        ex = ex + 1.5
        end
@@ -165,7 +166,7 @@ function love.update(dt)
          ey = ey - 1.5
        end
 
---e2
+--e2 movement
 
 
        if x > ex2 then
@@ -207,7 +208,7 @@ function love.draw()
 
   cam:draw(function(l, t, w, h)
 
-
+--map draw
     for i2 = 0, 50 do
       for i = 0, 50 do
         love.graphics.draw(floor, fx + (i * 64), fy + (i2 * 64) )
@@ -216,7 +217,7 @@ function love.draw()
 
 
     collision:draw()
-
+--players and enemy
 
     love.graphics.draw(me, x, y)
 
@@ -226,7 +227,7 @@ function love.draw()
 
 
 
-
+--hint is in it
     if x < 4000 and y < 4000 then
       love.graphics.print('Alright, you will stop here', 100, 150,0,3)
       love.graphics.print('those are You, other Yous', 100, 500,0,3)
@@ -241,15 +242,14 @@ function love.draw()
 end
 
 
-
+-- how you end this game
   function love.keypressed(key)
 
   if x > 1728 and x < 1792 and y > 1920 and y < 1984 then
-  --  if x > 3000 then
       LOAD_MODULE =  'cap6'
       love.exitModule()
     end
-
+--sound
     if key == 'right' or key == 'left' or key == 'up' or key == 'down' then
       sound:play()
     end

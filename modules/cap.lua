@@ -9,12 +9,15 @@ local anim8 = require 'core/anim8'
 
 function love.load()
 
-
+-- random number
+--random number have not used in this folder
   G = love.math.random(-3, 4);
   H = love.math.random(-3, 4);
   xx = love.math.random(0, 1000);
   yy = love.math.random(0, 1000);
 
+
+-- backround music
 
 sound = love.audio.newSource('music/dark_ambient.mp3', 'static')
 
@@ -26,6 +29,7 @@ sound = love.audio.newSource('music/dark_ambient.mp3', 'static')
   h = 0
 
 
+-- vars
   X1 = 400
   Y1 = 300
   X2 = 415
@@ -49,11 +53,12 @@ sound = love.audio.newSource('music/dark_ambient.mp3', 'static')
   ent = love.graphics.newImage('assets-1/monster/boggart.png')
     cam = gamera.new(-1000, -1000, 10000, 10000)
 
+--map floor
   a = love.graphics.newImage('assets-1/dungeon/floor/black_cobalt_9.png')
   b = love.graphics.newImage('assets-1/dungeon/floor/cage_3.png')
   c = love.graphics.newImage('assets-1/dungeon/floor/green_bones_12.png')
 
-
+--map
   mapTemplate = {
     {b, b, b, b, b},
     {b, b, b, b, b},
@@ -134,7 +139,7 @@ sound = love.audio.newSource('music/dark_ambient.mp3', 'static')
     {b, b, b, b, b},
 
     }
-
+--collision map
     wall = love.graphics.newImage('assets-1/dungeon/wall/catacombs_1.png')
 
     collision = {
@@ -229,10 +234,10 @@ end
 
 function love.update(dt)
 
-
+--camra
   cam:setPosition(x, y)
 
-
+-- player movement
   if love.keyboard.isDown('up') then
     if collision:cc(x, y - 1, 55, 30) == false then
       y = y - 1
@@ -275,7 +280,7 @@ function love.draw()
   collision:draw()
 
   love.graphics.draw(me, x, y)
-
+--Narration, story
 if x < 300 and y < 250 then
   love.graphics.print('Red road that can not reach the end.', 50, 50)
 end
@@ -356,14 +361,14 @@ end
 
 
 end
-
+-- go to next map
 function love.keypressed(key)
 
   if x > 4300 then
     LOAD_MODULE =  'cap2'
     love.exitModule()
   end
-
+--play music
 if key == 'right' then
   sound:play()
   end
