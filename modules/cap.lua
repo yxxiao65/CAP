@@ -29,15 +29,17 @@ sound = love.audio.newSource('music/dark_ambient.mp3', 'static')
   h = 0
 
 
--- vars
+-- vars that not used
   X1 = 400
   Y1 = 300
   X2 = 415
   Y2 = 280
+  dir = 'left'
 
+--helth point
   hp = 100
 
-  dir = 'left'
+
 
 --me
   x = 100
@@ -53,12 +55,12 @@ sound = love.audio.newSource('music/dark_ambient.mp3', 'static')
   ent = love.graphics.newImage('assets-1/monster/boggart.png')
     cam = gamera.new(-1000, -1000, 10000, 10000)
 
---map floor
+--floors
   a = love.graphics.newImage('assets-1/dungeon/floor/black_cobalt_9.png')
   b = love.graphics.newImage('assets-1/dungeon/floor/cage_3.png')
   c = love.graphics.newImage('assets-1/dungeon/floor/green_bones_12.png')
 
---map
+--original way to draw map
   mapTemplate = {
     {b, b, b, b, b},
     {b, b, b, b, b},

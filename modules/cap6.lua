@@ -11,10 +11,10 @@ function love.load()
     t = 0
     w = 0
     h = 0
---word
+--For words
 zx = 0
 zy = 0
---player
+--player s
   x = 64
   y = 64
   me = love.graphics.newImage('assets-1/player/felids/cat_6.png')
