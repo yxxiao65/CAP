@@ -11,6 +11,8 @@ function love.load()
 
 -- random number
 --random number have not used in this folder
+--I have many ideas to improve this game, so I do keep these code for reminder.
+--In real life, I can make it as a free game and sell DLCs for profit
   G = love.math.random(-3, 4);
   H = love.math.random(-3, 4);
   xx = love.math.random(0, 1000);
