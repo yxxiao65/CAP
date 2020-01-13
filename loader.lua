@@ -1,6 +1,6 @@
 
 -- /////////////////////////////////////////////////////////////////////////
--- If you want to load a specific module, change LOAD_MODULE from nil to the name of the module
+-- If you  want to load a specific module, change LOAD_MODULE from nil to the name of the module
 
 
 LOAD_MODULE =  'cap'  -- change this to the name of your file if you want to test your file
